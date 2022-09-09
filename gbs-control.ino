@@ -7488,13 +7488,27 @@ void handleButtons(void)
 {
     debounceButtons();
     if (buttonDown(INPUT_SHIFT))
-        Menu::run(MenuInput::BACK);
+    {
+        
+    }
     if (buttonDown(DOWN_SHIFT))
-        Menu::run(MenuInput::DOWN);
+    {
+        if (--uopt->presetSlot <= SLOTS_TOTAL)
+            uopt->presetSlot = SLOTS_TOTAL;
+        SerialM.print(F("DOWN Pressed. new presetSlot is: "));
+        SerialM.println(presetSlot, DEC);
+    }
     if (buttonDown(UP_SHIFT))
-        Menu::run(MenuInput::UP);
+    {
+        if (++uopt->presetSlot >= SLOTS_TOTAL)
+            uopt->presetSlot = 0;
+        SerialM.print(F("UP Pressed. new presetSlot is: "));
+        SerialM.println(presetSlot, DEC);
+    }
     if (buttonDown(MENU_SHIFT))
-        Menu::run(MenuInput::FORWARD);
+    {
+        //add here what u want, this exceeds my original idea
+    }
 }
 #endif
 
