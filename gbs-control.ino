@@ -16,7 +16,7 @@
 #include "presets/ofw_RGBS.h"
 
 #include <Wire.h>
-#include "tv5725.h"
+#include "presets/tv5725.h"
 #include "framesync.h"
 #include "osd.h"
 
